@@ -25,6 +25,9 @@ class Category(models.Model):
 class Issue(models.Model):
     """Representation of issue."""
 
+    class Meta:
+        ordering = ["opened_at"]
+
     class State(models.TextChoices):
         """States of an issue"""
 

@@ -12,6 +12,7 @@ packages = [
 [tool.poetry.group.dev.dependencies]
 django-types = "^0.16.0"
 pylint-django = "^2.5.3"
+djangorestframework-types = "^0.8.0"
 
 [tool.flake8]
 max-line-length = 100
