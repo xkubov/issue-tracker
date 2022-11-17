@@ -79,8 +79,7 @@ class Issue(models.Model):
     )
 
     def __str__(self) -> str:
-        state: str = Issue.State(self.state).label
-        return f"({state}) {self.title}"
+        return str(self.title)
 
     def save(self, *args, **kwargs):
         # If the state is being udated we want to ensure that:
@@ -89,8 +88,11 @@ class Issue(models.Model):
 
         if self.previous_state != self.state:
             if self.state == Issue.State.CLOSED:
-                resolution_delta = timezone.now() - self.opened_at
-                self.resolution_duration += int(resolution_delta.total_seconds())
+                # We can create issue in closed state. In that case we don't want
+                # to do any action.
+                if self.opened_at is not None:
+                    resolution_delta = timezone.now() - self.opened_at
+                    self.resolution_duration += int(resolution_delta.total_seconds())
 
             else:
                 self.opened_at = timezone.now()

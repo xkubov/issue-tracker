@@ -1,0 +1,27 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+  <table>
+    <tr>
+      <td>Open Issues</td>
+      <td> {{ stats.open_issues }} </td> 
+    </tr>
+    <tr>
+      <td>Resolved Issues</td>
+      <td> {{ stats.resolved_issues }} </td> 
+    </tr>
+    <tr>
+      <td>The fastest resolution</td>
+      <td>{{ stats.fastest_resolution }}</td> 
+    </tr>
+    <tr>
+      <td>The longest resolution</td>
+      <td>{{ stats.longest_resolution }}</td> 
+    </tr>
+    <tr>
+      <td>Average resolution</td>
+      <td>{{ stats.average_resolution }}</td> 
+    </tr>
+  </table>
+  {{ block.super }}
+{% endblock %}
