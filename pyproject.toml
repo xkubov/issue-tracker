@@ -11,9 +11,11 @@ packages = [
 
 [tool.poetry.group.dev.dependencies]
 django-types = "^0.16.0"
+pylint-django = "^2.5.3"
 
 [tool.flake8]
 max-line-length = 100
+per-file-ignores = "**/migrations/*.py:E501"
 
 [tool.black]
 line-length = 100
@@ -43,8 +45,11 @@ namespace_packages = true
 warn_unused_ignores = true
 
 [tool.pylint.master]
+load-plugins="pylint_django"
+django-settings-module="issue_tracker.settings"
 disable = [
     "C0114", # Disable missing docstring.
+    "C0115", # Disable missing docstring.
 ]
 ignore = "migrations"
 

@@ -2,7 +2,7 @@
 Models for the issues app.
 """
 
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
 
@@ -39,13 +39,13 @@ class Issue(models.Model):
         help_text="A detailed description of the issue.",
     )
     submitter = models.ForeignKey(
-        User,
+        get_user_model(),
         on_delete=models.CASCADE,
         related_name="%(class)s_submitted",
         help_text="The reporter of the issue.",
     )
     assignee = models.ForeignKey(
-        User,
+        get_user_model(),
         on_delete=models.CASCADE,
         related_name="%(class)s_assigned",
         help_text="Assign a user to resolve this issue.",
