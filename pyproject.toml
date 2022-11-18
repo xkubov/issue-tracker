@@ -22,6 +22,9 @@ include = '\.pyi?$'
 profile = "black"
 
 [tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "issue_tracker.settings"
+mock_use_standalone_module = true
+python_files = ['tests.py', 'test_*.py', '*_tests.py']
 addopts = "--mypy --black --isort --pylint --cov=issue_tracker"
 filterwarnings = [
     'ignore:.*checker-specific:DeprecationWarning',
@@ -57,7 +60,7 @@ disable = [
     "C0114", # Disable missing docstring.
     "C0115", # Disable missing docstring.
 ]
-ignore = ["migrations", "manage.py"]
+ignore = ["migrations", "manage.py", "tests"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -65,6 +68,7 @@ django = "^4.1.3"
 djangorestframework = "^3.14.0"
 
 [tool.poetry.dev-dependencies]
+mock = "^4.0.3"
 black = "^22.10.0"
 isort = "^5.10.1"
 flake8 = "^5.0.4"
