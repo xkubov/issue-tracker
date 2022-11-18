@@ -208,6 +208,14 @@ TOMLi = {version = "*", markers = "python_version < \"3.11\""}
 dev = ["pyTest", "pyTest-cov"]
 
 [[package]]
+name = "inflection"
+version = "0.3.1"
+description = "A port of Ruby on Rails inflector to Python"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "iniconfig"
 version = "1.1.1"
 description = "iniconfig: brain-dead simple config-ini parsing"
@@ -448,6 +456,14 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
 
 [[package]]
+name = "pytest-assert-utils"
+version = "0.3.1"
+description = "Useful assertion utilities for use with pytest"
+category = "dev"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[[package]]
 name = "pytest-black"
 version = "0.3.12"
 description = "A pytest plugin to enable format checking with black"
@@ -459,6 +475,20 @@ python-versions = ">=2.7"
 black = {version = "*", markers = "python_version >= \"3.6\""}
 pytest = ">=3.5.0"
 toml = "*"
+
+[[package]]
+name = "pytest-common-subject"
+version = "1.0.6"
+description = "pytest framework for testing different aspects of a common method"
+category = "dev"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+lazy-object-proxy = ">=1.3.1,<2.0.0"
+pytest = ">=3.6,<8"
+pytest-fixture-order = ">=0.1.2,<0.2.0"
+pytest-lambda = ">=0.1.0"
 
 [[package]]
 name = "pytest-cov"
@@ -491,6 +521,33 @@ docs = ["sphinx", "sphinx-rtd-theme"]
 testing = ["Django", "django-configurations (>=2.0)"]
 
 [[package]]
+name = "pytest-drf"
+version = "1.1.3"
+description = "A Django REST framework plugin for pytest."
+category = "dev"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+djangorestframework = ">3"
+inflection = ">=0.3.1,<0.4.0"
+pytest = ">=3.7"
+pytest-assert-utils = ">=0,<1"
+pytest-common-subject = ">=1.0,<2.0"
+pytest-lambda = ">=1.2.3,<2.0.0"
+
+[[package]]
+name = "pytest-fixture-order"
+version = "0.1.4"
+description = "pytest plugin to control fixture evaluation order"
+category = "dev"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+pytest = ">=3.0"
+
+[[package]]
 name = "pytest-isort"
 version = "3.1.0"
 description = "py.test plugin to check import ordering using isort"
@@ -501,6 +558,18 @@ python-versions = ">=3.7,<4"
 [package.dependencies]
 isort = ">=4.0"
 pytest = ">=5.0"
+
+[[package]]
+name = "pytest-lambda"
+version = "1.3.0"
+description = "Define pytest fixtures with lambda functions."
+category = "dev"
+optional = false
+python-versions = ">=3.7.0,<4.0.0"
+
+[package.dependencies]
+pytest = ">=3.6,<8"
+wrapt = ">=1.11.0,<2.0.0"
 
 [[package]]
 name = "pytest-mock"
@@ -613,7 +682,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "f5eb5eb3b1488cf5da40d3872ed15ce98432f4c715b4d1646dd0a0ebc000a30e"
+content-hash = "fbf02f1dadb512447424cc99d5e7a2db1688e95e5b4228e1c20e1c4b67bcef6d"
 
 [metadata.files]
 asgiref = [
@@ -750,6 +819,9 @@ flake8 = [
 flake8-pyproject = [
     {file = "flake8_pyproject-1.2.0-py3-none-any.whl", hash = "sha256:0f90aced603bd47b1b60d83fb0b1d127e3d96a53e7a8cc980b4fb96b785be101"},
 ]
+inflection = [
+    {file = "inflection-0.3.1.tar.gz", hash = "sha256:18ea7fb7a7d152853386523def08736aa8c32636b047ade55f7578c4edeb16ca"},
+]
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
     {file = "iniconfig-1.1.1.tar.gz", hash = "sha256:bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"},
@@ -875,8 +947,16 @@ pytest = [
     {file = "pytest-7.2.0-py3-none-any.whl", hash = "sha256:892f933d339f068883b6fd5a459f03d85bfcb355e4981e146d2c7616c21fef71"},
     {file = "pytest-7.2.0.tar.gz", hash = "sha256:c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"},
 ]
+pytest-assert-utils = [
+    {file = "pytest-assert-utils-0.3.1.tar.gz", hash = "sha256:a8600b666430764eb7a486de3b21af5542425eb5bd211f6eb1ea30930691812b"},
+    {file = "pytest_assert_utils-0.3.1-py3-none-any.whl", hash = "sha256:f4d7fa44506c1ed65eb5369100476d74d5d8a86400c4862eab3ea0e9521a22dd"},
+]
 pytest-black = [
     {file = "pytest-black-0.3.12.tar.gz", hash = "sha256:1d339b004f764d6cd0f06e690f6dd748df3d62e6fe1a692d6a5500ac2c5b75a5"},
+]
+pytest-common-subject = [
+    {file = "pytest-common-subject-1.0.6.tar.gz", hash = "sha256:e3cd860c7e6e4481f29a47f80b41a0c186d146f529a2f346b8a9f3ed4e113f6c"},
+    {file = "pytest_common_subject-1.0.6-py3-none-any.whl", hash = "sha256:3717bb80359513dd679744805fc39bf34ed48c872be9cbe616c69291bff54f1c"},
 ]
 pytest-cov = [
     {file = "pytest-cov-4.0.0.tar.gz", hash = "sha256:996b79efde6433cdbd0088872dbc5fb3ed7fe1578b68cdbba634f14bb8dd0470"},
@@ -886,9 +966,21 @@ pytest-django = [
     {file = "pytest-django-4.5.2.tar.gz", hash = "sha256:d9076f759bb7c36939dbdd5ae6633c18edfc2902d1a69fdbefd2426b970ce6c2"},
     {file = "pytest_django-4.5.2-py3-none-any.whl", hash = "sha256:c60834861933773109334fe5a53e83d1ef4828f2203a1d6a0fa9972f4f75ab3e"},
 ]
+pytest-drf = [
+    {file = "pytest-drf-1.1.3.tar.gz", hash = "sha256:4f8bd999a0d80654a55145761e5ced7601baf301fdb020ba62a25ac708fe070a"},
+    {file = "pytest_drf-1.1.3-py3-none-any.whl", hash = "sha256:4d6106f7f313de2e8158ca41550817ca564f1ddcf6ba68a1e2ab404e04b36282"},
+]
+pytest-fixture-order = [
+    {file = "pytest-fixture-order-0.1.4.tar.gz", hash = "sha256:257693f1c9fcc687c46e2562ee380e4e94f47670effbbce24545c73b00f25366"},
+    {file = "pytest_fixture_order-0.1.4-py3-none-any.whl", hash = "sha256:6554329dfe1c6961b82c8ab7e3565ad4af279d917317a3d66b2c5ff077d27b97"},
+]
 pytest-isort = [
     {file = "pytest_isort-3.1.0-py3-none-any.whl", hash = "sha256:13e68d84b35d4f79d20d3d165f491bffc9e4b9509f420381a4186118c4454bd3"},
     {file = "pytest_isort-3.1.0.tar.gz", hash = "sha256:067801dc5e54a474330d074d521c815948ff6d5cf0ed3b9d057b78216851186c"},
+]
+pytest-lambda = [
+    {file = "pytest-lambda-1.3.0.tar.gz", hash = "sha256:e91b6e1f0c13d54fdda0c7b0be3deefca3b65e3c140f3e96d2f4968eb37d65e5"},
+    {file = "pytest_lambda-1.3.0-py3-none-any.whl", hash = "sha256:f7aa827c74be5b2332f2beb9295f46bbffc1826301fc1c0507b077ba2ea8ca4a"},
 ]
 pytest-mock = [
     {file = "pytest-mock-3.10.0.tar.gz", hash = "sha256:fbbdb085ef7c252a326fd8cdcac0aa3b1333d8811f131bdcc701002e1be7ed4f"},
