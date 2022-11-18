@@ -2,7 +2,7 @@
 
 A simple issue tracking app written in Django.
 
-** Features: **
+**Features:**
 
 * Issues are managed using [Django Admin](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/) from `/admin` path.
 * Issue Tracker uses default Django user model. Permissions are granted based on user's status.
