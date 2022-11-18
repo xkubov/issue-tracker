@@ -34,7 +34,7 @@ class IssueListSerializer(serializers.ModelSerializer):
 
     def get_submitter(self, obj: Issue) -> str:
         """A custom serializer for submitter field returning its streing repr."""
-        return str(obj.assignee)
+        return str(obj.submitter)
 
 
 class IssueSerializer(IssueListSerializer):
