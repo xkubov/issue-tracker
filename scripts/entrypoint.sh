@@ -7,7 +7,7 @@ mkdir -p /app/database
 /app/scripts/manage.py migrate
 
 # Collect static files.
-/app/scripts/manage.py collectstatic
+/app/scripts/manage.py collectstatic --noinput
 
 if [ ! -z "$ADMIN_PASSWORD" ]; then
 	echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@myproject.com', '$ADMIN_PASSWORD')" | python /app/scripts/manage.py shell

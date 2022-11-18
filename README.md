@@ -112,7 +112,7 @@ To run `issue_tracker` using Docker, use:
 1. `docker build -t issue_tracker -f ./docker/Dockerfile .`
 2. `docker run -p80:80 -e SECRET_KEY=$SECRET_KEY issue_tracker`
 
-** Notes: **
+**Notes:**
 
 * The `SECRET_KEY` should be randomly generated string.
 * The production build will not create `admin` user by default. You can create default `admin` by adding `-eADMIN_PASSORD=$PASSWORD` argument to `docker run`.
