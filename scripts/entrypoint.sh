@@ -3,6 +3,7 @@
 set -x
 
 # Migrate database.
+mkdir -p /app/database
 /app/scripts/manage.py migrate
 
 # Collect static files.
