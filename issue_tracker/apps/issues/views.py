@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Issue
-from .serializers import IssueSerializer, IssueListSerializer
+from .serializers import IssueListSerializer, IssueSerializer
 
 
 @api_view(["GET"])
