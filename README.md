@@ -56,7 +56,7 @@ Then, you can start the developemnt server by running:
 $ ./scripts/manage.py runserver
 ```
 
-You should be able to access admin page by visiting `localhost:8080/admin`.
+You should be able to access admin page by visiting `localhost:8000/admin`.
 
 ### Linting & Formatting
 
