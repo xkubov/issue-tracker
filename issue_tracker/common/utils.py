@@ -7,7 +7,6 @@ def duration(total_seconds: int | None) -> str:
     """
     Returns string representation of duration in seconds.
     """
-    print(total_seconds)
     if total_seconds is None:
         return "-"
 
