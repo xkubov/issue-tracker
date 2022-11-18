@@ -23,6 +23,31 @@ class IssueAdmin(admin.ModelAdmin):  # type: ignore
         "opened_at",
     )
 
+    def has_module_permission(self, request: HttpRequest) -> bool:
+        """Assure staff can view issues module in the admin site."""
+        user = request.user
+        return getattr(user, "is_staff", False)
+
+    def has_view_permission(self, request: HttpRequest, obj: typing.Any = None) -> bool:
+        """Assure staff can view issues in the admin site."""
+        user = request.user
+        return getattr(user, "is_staff", False)
+
+    def has_add_permission(self, request: HttpRequest) -> bool:
+        """Assure staff can add issues in the admin site."""
+        user = request.user
+        return getattr(user, "is_staff", False)
+
+    def has_change_permission(self, request: HttpRequest, obj: typing.Any = None) -> bool:
+        """Assure staff CANNOT change issues in the admin site."""
+        user = request.user
+        return getattr(user, "is_superuser", False)
+
+    def has_delete_permission(self, request: HttpRequest, obj: typing.Any = None) -> bool:
+        """Assure staff CANNOT delete issues in the admin site."""
+        user = request.user
+        return getattr(user, "is_superuser", False)
+
     def changelist_view(
         self, request: HttpRequest, extra_context: dict[str, typing.Any] | None = None
     ) -> TemplateResponse:
