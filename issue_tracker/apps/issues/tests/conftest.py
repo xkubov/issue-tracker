@@ -35,7 +35,8 @@ def timezone_patcher(mocker: typing.Any) -> typing.Generator[TimezonePatcher, No
     """
     Fixture for accessing timezone patcher.
     """
-    yield TimezonePatcher(timezone.datetime(year=2022, month=11, day=18), mocker)
+    tzinfo = timezone.now().tzinfo
+    yield TimezonePatcher(timezone.datetime(year=2022, month=11, day=18, tzinfo=tzinfo), mocker)
 
 
 @pytest.mark.django_db

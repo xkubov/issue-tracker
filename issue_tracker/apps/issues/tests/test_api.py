@@ -2,6 +2,7 @@ import typing
 
 import pytest
 from django.urls import reverse
+from django.utils import timezone
 from pytest_drf import APIViewTest, Returns200, UsesGetMethod
 
 from ..models import Issue
@@ -52,13 +53,13 @@ class TestListIssues(APIViewTest, UsesGetMethod, Returns200):  # type: ignore
             {
                 "assignee": str(issue.assignee),
                 "category": str(issue.category),
-                "id": i + 1,
-                "opened_at": f"2022-11-18T00:00:{i:02d}+01:00",
+                "id": i,
+                "opened_at": timezone.localtime(issue.opened_at).isoformat(),
                 "state": "Open",
                 "submitter": str(issue.submitter),
                 "title": issue.title,
             }
-            for i, issue in enumerate(issues, 0)
+            for i, issue in enumerate(issues, 1)
         ]
 
         assert json == expected
@@ -96,7 +97,7 @@ class TestListIssueDetail(APIViewTest, UsesGetMethod):  # type: ignore
             "description": issue.description,
             "category": str(issue.category),
             "id": 1,
-            "opened_at": "2022-11-18T00:00:00+01:00",
+            "opened_at": timezone.localtime(issue.opened_at).isoformat(),
             "state": "Open",
             "submitter": str(issue.submitter),
             "title": issue.title,
