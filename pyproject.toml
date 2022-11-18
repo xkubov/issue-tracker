@@ -63,12 +63,13 @@ disable = [
     "C0114", # Disable missing docstring.
     "C0115", # Disable missing docstring.
 ]
-ignore = ["migrations", "manage.py", "tests"]
+ignore = ["migrations", "manage.py", "tests", "settings.py", "settings_prod.py"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 django = "^4.1.3"
 djangorestframework = "^3.14.0"
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 mock = "^4.0.3"

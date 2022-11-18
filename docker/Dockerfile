@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM python:3.10-slim-buster
 
 # Install pinned poetry version.
 RUN pip install 'poetry==1.2.1'
@@ -13,3 +13,11 @@ WORKDIR /app
 RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi --no-root
 
 COPY . /app
+
+RUN poetry install
+
+EXPOSE 80
+
+ENV DJANGO_SETTINGS_MODULE="issue_tracker.settings_prod"
+
+ENTRYPOINT ["bash", "scripts/entrypoint.sh"]
