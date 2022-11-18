@@ -11,6 +11,7 @@ class IssueListSerializer(serializers.ModelSerializer):
     category = serializers.SerializerMethodField()
     assignee = serializers.SerializerMethodField()
     submitter = serializers.SerializerMethodField()
+    state = serializers.SerializerMethodField()
 
     class Meta:
         model = Issue
@@ -35,6 +36,10 @@ class IssueListSerializer(serializers.ModelSerializer):
     def get_submitter(self, obj: Issue) -> str:
         """A custom serializer for submitter field returning its streing repr."""
         return str(obj.submitter)
+
+    def get_state(self, obj: Issue) -> str:
+        """Returns state as a string instead of abbreviation. Open instead of OPN."""
+        return Issue.State(obj.state).label
 
 
 class IssueSerializer(IssueListSerializer):

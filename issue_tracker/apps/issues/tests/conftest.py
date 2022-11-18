@@ -29,13 +29,6 @@ class TimezonePatcher:
         self._now += timedelta(seconds=1)
         return to_return
 
-    @property
-    def now(self):
-        """
-        Access method for self._now.
-        """
-        return self._now
-
 
 @pytest.fixture()
 def timezone_patcher(mocker: typing.Any) -> typing.Generator[TimezonePatcher, None, None]:

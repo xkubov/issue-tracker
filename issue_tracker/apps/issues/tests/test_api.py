@@ -54,7 +54,7 @@ class TestListIssues(APIViewTest, UsesGetMethod, Returns200):  # type: ignore
                 "category": str(issue.category),
                 "id": i + 1,
                 "opened_at": f"2022-11-18T00:00:{i:02d}+01:00",
-                "state": "OPN",
+                "state": "Open",
                 "submitter": str(issue.submitter),
                 "title": issue.title,
             }
@@ -97,7 +97,7 @@ class TestListIssueDetail(APIViewTest, UsesGetMethod):  # type: ignore
             "category": str(issue.category),
             "id": 1,
             "opened_at": "2022-11-18T00:00:00+01:00",
-            "state": "OPN",
+            "state": "Open",
             "submitter": str(issue.submitter),
             "title": issue.title,
         }
